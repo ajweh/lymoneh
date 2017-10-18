@@ -1,0 +1,15 @@
+com\expedia\bean\HotelUrgencyInfo.class
+com\expedia\bean\Destination.class
+com\expedia\bean\HotelUrls.class
+com\expedia\bean\OfferInfo.class
+com\expedia\bean\Offers.class
+com\expedia\bean\HotelPricingInfo.class
+com\expedia\bean\HotelDealsParser.class
+com\expedia\bean\Persona.class
+com\expedia\url\HotelDealReader.class
+com\expedia\bean\UserInfo.class
+com\expedia\managedBean\HotelBean.class
+com\expedia\bean\Hotel.class
+com\expedia\bean\OfferDateRange.class
+com\expedia\bean\HotelInfo.class
+com\expedia\bean\PersonaType.class
