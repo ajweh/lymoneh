@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Hotel Offer Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+
+        <h:form>
+
+
+            <p:panelGrid columns="4">
+                <f:facet name="header">
+
+                </f:facet>
+
+                <h:outputText value="SiteID:" />
+                <h:outputText value="#{hotelBean.deals.offerInfo.siteID}" />
+                <h:outputText value="Language" />
+                <h:outputText value="#{hotelBean.deals.offerInfo.language}" />
+                <h:outputText value="currency" />
+                <h:outputText value="#{hotelBean.deals.offerInfo.currency}" />                
+                <h:outputText value="personaType" />
+                <h:outputText value="#{hotelBean.deals.userInfo.persona.personaType}" />                
+                <h:outputText value="userId" />
+                <h:outputText value="#{hotelBean.deals.userInfo.userId}" />
+
+
+
+            </p:panelGrid>
+
+
+            <p:dataTable var="hotel" value="#{hotelBean.deals.offers.hotel}" sortBy="#{hotel.hotelInfo.hotelId}" expandableRowGroups="true" >
+
+                <p:headerRow>
+                    <p:column colspan="7">
+                        <h:outputText value="#{hotel.hotelInfo.hotelName}" />
+                    </p:column>
+                </p:headerRow>
+                <p:column  headerText="Travel Start Date" filterBy="#{hotel.offerDateRange.travelStartDate}" sortBy="#{hotel.offerDateRange.travelStartDate}">
+                    <h:outputText value="#{hotel.offerDateRange.travelStartDate}" >
+                        <f:convertDateTime pattern="MM-dd-yyyy" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="Travel End Date" filterBy="#{hotel.offerDateRange.travelEndDate}" sortBy="#{hotel.offerDateRange.travelEndDate}">
+                    <h:outputText value="#{hotel.offerDateRange.travelEndDate}" />
+                </p:column>
+
+                <p:column headerText="Length Of Stay" filterBy="#{hotel.offerDateRange.lengthOfStay}" sortBy="#{hotel.offerDateRange.lengthOfStay}">
+                    <h:outputText value="#{hotel.offerDateRange.lengthOfStay}" />
+                </p:column>
+                
+                
+                <p:column headerText="Destination" filterBy="#{hotel.destination.city}" >
+                    <h:outputText value="#{hotel.destination.shortName}" />
+                </p:column>
+                
+                
+                
+                <p:column headerText="Destination" filterBy="#{hotel.destination.city}" sortBy="#{hotel.hotelInfo.hotelStarRating}">                  
+                      <h:outputText value="#{hotel.hotelInfo.hotelStarRating}" />
+                </p:column>
+                
+                <p:column headerText="hotelReviewTotal" filterBy="#{hotel.hotelInfo.hotelReviewTotal}" sortBy="#{hotel.hotelInfo.hotelReviewTotal}">
+                    <h:outputText value="#{hotel.hotelInfo.hotelReviewTotal}" />
+                </p:column>
+                <p:column headerText="hotelGuestReviewRating" filterBy="#{hotel.hotelInfo.hotelGuestReviewRating}" sortBy="#{hotel.hotelInfo.hotelGuestReviewRating}">
+                    <h:outputText value="#{hotel.hotelInfo.hotelGuestReviewRating}" />
+                </p:column>
+            </p:dataTable>
+
+        </h:form>
+    </body>
+</html>
+
